@@ -8,16 +8,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
+@Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Template {
 
-	private String content;
 	private long id;
+	private String content;
+	private String subject;
 	private String name;
 	private String type;
+	private String status;
 
 }

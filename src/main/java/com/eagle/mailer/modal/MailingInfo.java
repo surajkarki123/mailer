@@ -17,7 +17,8 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MailingInfo {
 
-	private LocalDate lastMailSent;
 	private int templateId;
+	private LocalDate lastMailSent;
 	private String templateType;
+	private String clientId;
 }

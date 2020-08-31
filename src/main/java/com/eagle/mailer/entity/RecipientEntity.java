@@ -1,8 +1,10 @@
 package com.eagle.mailer.entity;
 
+import java.math.BigInteger;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import com.eagle.mailer.enums.StatusEnum;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,11 +16,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Document(collation = "RecipientEntity")
 public class RecipientEntity {
-
+	
+	@Id
+	private BigInteger id;
 	private String email;
 	private String firstName;
-	private long id;
 	private String lastName;
 	private MailingInfoEntity mailingInfo;
 	private StatusEnum status;

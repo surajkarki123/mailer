@@ -25,4 +25,5 @@ public class Sender {
 	private String lastName;
 	private String password;
 	private String status;
+	private String clientId;
 }

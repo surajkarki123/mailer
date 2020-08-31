@@ -1,7 +1,6 @@
 package com.eagle.mailer.controller;
 
 import static com.eagle.mailer.constants.MailerConstants.Endpoints.SENDER_END_POINT;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class SenderController {
 
-	private SenderService senderService;
+	private final SenderService senderService;
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {

@@ -19,4 +19,5 @@ public class Recipient {
 	private String firstName;
 	private String lastName;
 	private String status;
+	private String clientId;
 }
