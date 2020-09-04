@@ -1,6 +1,8 @@
 package com.eagle.mailer.controller;
 
 import static com.eagle.mailer.constants.MailerConstants.Endpoints.SENDER_END_POINT;
+
+import java.math.BigInteger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +26,14 @@ public class SenderController {
 	private final SenderService senderService;
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {
-		return ResponseEntity.ok().body(senderService.delete(id));
+	public ResponseEntity<Boolean> delete(@PathVariable("id") BigInteger id) {
+		senderService.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Sender> get(@PathVariable("id") long id) {
-		return ResponseEntity.ok().body(senderService.get(id));
+	public ResponseEntity<Sender> get(@PathVariable("id") BigInteger id) {
+		return ResponseEntity.ok(senderService.findById(id));
 	}
 
 	@PostMapping
@@ -40,7 +43,7 @@ public class SenderController {
 
 	@PutMapping
 	public ResponseEntity<Sender> update(@RequestBody Sender sender) {
-		return ResponseEntity.ok().body(senderService.save(sender));
+		return ResponseEntity.ok().body(senderService.update(sender));
 	}
 
 }

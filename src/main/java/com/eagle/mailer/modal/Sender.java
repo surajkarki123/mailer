@@ -1,5 +1,6 @@
 package com.eagle.mailer.modal;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Sender {
 
-	private long id;
+	private BigInteger id;
 	private String accountType;
 	private LocalDate createdDate;
 	private String email;
@@ -25,5 +26,5 @@ public class Sender {
 	private String lastName;
 	private String password;
 	private String status;
-	private String clientId;
+	
 }

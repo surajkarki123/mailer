@@ -14,11 +14,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RecipientSequenceRepository {
 
-	 private static final String SEQUENCE_NAME = "senderSequence";
+	 private static final String SEQUENCE_NAME = " recipientSequence";
 	 private final MongoOperations mongo;
 
 	    public BigInteger getNextSequence() {
-	        return mongo.findAndModify(query(where("_id").is(SEQUENCE_NAME)), new Update().inc("seq", 1),
+	        long l=  mongo.findAndModify(query(where("_id").is(SEQUENCE_NAME)), new Update().inc("seq", 1),
 	                options().returnNew(true).upsert(true), RecipientSequenceEntity.class).getSeq();
+	        return BigInteger.valueOf(l);
 	    }
 }

@@ -1,5 +1,7 @@
 package com.eagle.mailer.modal;
 
+import java.math.BigInteger;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AccessLevel;
@@ -14,10 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipient {
-
+	private BigInteger id;
 	private String email;
 	private String firstName;
 	private String lastName;
 	private String status;
-	private String clientId;
+	
 }
