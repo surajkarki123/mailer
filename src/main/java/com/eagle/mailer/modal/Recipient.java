@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipient {
+
 	private BigInteger id;
 	private String email;
 	private String firstName;

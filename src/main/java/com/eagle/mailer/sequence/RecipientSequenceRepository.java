@@ -18,8 +18,8 @@ public class RecipientSequenceRepository {
 	 private final MongoOperations mongo;
 
 	    public BigInteger getNextSequence() {
-	        long l=  mongo.findAndModify(query(where("_id").is(SEQUENCE_NAME)), new Update().inc("seq", 1),
+	     return mongo.findAndModify(query(where("_id").is(SEQUENCE_NAME)), new Update().inc("seq", 1),
 	                options().returnNew(true).upsert(true), RecipientSequenceEntity.class).getSeq();
-	        return BigInteger.valueOf(l);
+	      
 	    }
 }

@@ -38,12 +38,12 @@ public class SenderController {
 
 	@PostMapping
 	public ResponseEntity<Sender> save(@RequestBody Sender sender) {
-		return ResponseEntity.ok().body(senderService.save(sender));
+		return ResponseEntity.ok(senderService.save(sender));
 	}
 
 	@PutMapping
 	public ResponseEntity<Sender> update(@RequestBody Sender sender) {
-		return ResponseEntity.ok().body(senderService.update(sender));
+		return ResponseEntity.ok(senderService.update(sender));
 	}
 
 }

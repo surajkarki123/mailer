@@ -23,7 +23,7 @@ public class RecipientModelToEntity implements Function<Recipient, RecipientEnti
 	@Override
 	public RecipientEntity apply(Recipient recipient) {
 		BigInteger id = Objects.nonNull(recipient.getId()) && recipient.getId().compareTo(BigInteger.ZERO)>0 ? recipient.getId() : sequence.getNextSequence();
-		System.out.println(id);
+
 		return RecipientEntity.builder()
 				.id(id)
 				.firstName(recipient.getFirstName())

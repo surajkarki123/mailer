@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Document(collation = "Recipient")
+@Document(collection  = "Recipient")
 public class RecipientEntity {
 	
 	@Id

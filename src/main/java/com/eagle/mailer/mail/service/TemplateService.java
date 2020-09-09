@@ -23,9 +23,9 @@ import lombok.AllArgsConstructor;
 public class TemplateService {
 
 	private static final String EXP_MSG = "Execption occured while performing the operation for Tempate name/Id %s for client %s";
+
 	private final TemplateEntityToModel templateEntityToModel;
 	private final TemplateModelToEntity templateModelToEntity;
-	
 	private final TemplateRepository templateRepository;
 
 	public void delete(Long id) {
@@ -52,7 +52,7 @@ public class TemplateService {
 
 	public Template save(Template template) {
 		template.setId(0);
-		template.setStatus("ACTIVE");
+		template.setStatus(StatusEnum.ACTIVE.name());
 		return process(template);
 	}
 

@@ -22,5 +22,4 @@ public class Receiver {
 	private String lastName;
 	private String status;
 	private String password;
-	private String clientId;
 }

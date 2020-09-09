@@ -20,11 +20,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RecipientService {
 	
+	private static final String EXP_MSG = "Execption occured while performing the operation for Recipient name/Id %s for client %s";
+
 	private final  RecipientRepository recipientRepository;
 	private final  RecipientModelToEntity  recipientModelToEntity;
 	private final  RecipientEntityToModel  recipientEntityToModel;
 	
-	private static final String EXP_MSG = "Execption occured while performing the operation for Recipient name/Id %s for client %s";
 	
 	public void delete(BigInteger id) {
 		RecipientEntity recipientEntity = fetchById(id);
@@ -38,7 +39,7 @@ public class RecipientService {
 
 	public Recipient save(Recipient recipient) {
 		recipient.setId(BigInteger.valueOf(0));
-//		recipient.setStatus(status);
+		recipient.setStatus(StatusEnum.ACTIVE.name());
 		return process(recipient);
 	}
 

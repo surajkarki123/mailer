@@ -26,17 +26,15 @@ public class SenderService {
 	private final SenderRepository senderRepository;
 	private final SenderModelToEntity senderModelToEntity;
 	private final SenderEntityToModel senderEntityToModel;
-	
-	
+
 	public void delete(BigInteger id) {
 		SenderEntity senderEntity = fetchById(id);
-		
+
 		if (Objects.nonNull(senderEntity)) {
 			senderEntity.setStatus(StatusEnum.DELETED.code());
 			process(senderEntity);
 		}
 	}
-
 
 	public Sender save(Sender sender) {
 		sender.setId(BigInteger.valueOf(0));
@@ -55,7 +53,7 @@ public class SenderService {
 		return Objects.nonNull(senderEntity) ? senderEntityToModel.apply(senderEntity) : null;
 
 	}
-	
+
 	private SenderEntity fetchById(BigInteger id) {
 		SenderEntity sender = null;
 
@@ -67,7 +65,6 @@ public class SenderService {
 		}
 		return Objects.nonNull(sender) ? sender : null;
 	}
-
 
 	private Sender process(Sender sender) {
 		SenderEntity senderEntity = process(senderModelToEntity.apply(sender));
